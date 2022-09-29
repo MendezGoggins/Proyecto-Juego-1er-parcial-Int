@@ -4,18 +4,20 @@ window.onload = function (){
     canvas.width = 1100;
     canvas.height = 600;
     let intervalID = null
-    
-    let scoreOne = 0;
-    let scoreTwo = 0;
-    
+    let cancion = new Audio('backLogExtras/soundEffects/DON-omar-sol.mp3');
+    cancion.volume = 0.3
+    let heGanaoYo = document.getElementById('heganaoyo');
+    heGanaoYo.volume = 0.8
     let player1gana = document.getElementById('player1gana');
     let player2gana = document.getElementById('player2gana');
     let presionacualquiertecla = document.getElementById('presionacualquiertecla');
     let randomdiselotete = document.getElementById('randomdiselotete');
     let randomprinsesaquelepasa = document.getElementById('randomprinsesaquelepasa');
     let randomvosestaparsera = document.getElementById('randomvosestaparsera');
-    let frasesRandom = [randomdiselotete, randomprinsesaquelepasa, randomvosestaparsera];
-    console.log(player1gana);
+
+    let scoreOne = 0;
+    let scoreTwo = 0;
+    
     
     // key movement
     document.body.addEventListener("keydown", doKeyDown, false);
@@ -90,8 +92,8 @@ window.onload = function (){
         width:15,
         height:15,
         color: "#00ff00",
-        speed: 12,
-        gravity: 12,
+        speed: 13,
+        gravity: 13,
         image: null
      });
     
@@ -135,14 +137,28 @@ window.onload = function (){
         drawElements();
         // audio player1/2 gana
     
-        if(scoreOne == 2){
-            setTimeout(function() { player1gana.play(); }, 3000);
+        if(scoreOne == 1){
+            setTimeout(function() { heGanaoYo.play();
+            let imagenPlayer1Gana = document.createElement("img");
+            imagenPlayer1Gana.id = "player1gana"
+            imagenPlayer1Gana.src="backLogExtras/imagenes/Jose_cara_grande.png";
+            document.body.appendChild(imagenPlayer1Gana);
+            cancion.pause();
+            
+            }, 3000);
             
             finishGame(); 
         }
     
-        if(scoreTwo == 2){
-            setTimeout(function() { player2gana.play(); }, 3000);
+        if(scoreTwo == 1){
+            setTimeout(function() { heGanaoYo.play();
+                let imagenPlayer2Gana = document.createElement("img");
+                imagenPlayer2Gana.id = "player2gana"
+                imagenPlayer2Gana.src="backLogExtras/imagenes/Jose_cara_grande.png";
+                document.body.appendChild(imagenPlayer2Gana);
+                cancion.pause();
+                
+            }, 3000);
            
             finishGame();
         }
@@ -186,6 +202,8 @@ window.onload = function (){
     
     function startGameOnKeyPress(){
         window.addEventListener("keydown", startGame, {once:true});
+        cancion.play();
+        
     }
      // draw all elements
     
@@ -202,6 +220,7 @@ window.onload = function (){
     function startGame() {
         console.log("empieza")
         intervalID = setInterval(ballBounce, 20);
+        document.getElementById("intro").remove();
       }
     
     

@@ -1,5 +1,41 @@
 canvas{
     position: absolute;
     left: 9%;
+    z-index: 0;
     
 }
+
+
+
+#intro {
+    position: absolute;
+    left: 9%;
+    z-index: 1;
+    width: 1100px;
+    height: 600px;
+    background-repeat: no-repeat;
+    
+}
+
+#player1gana {
+    z-index: 2;
+    position: absolute;
+    left: 9%;
+    width: 1100px;
+    height: 600px;
+}
+
+#player2gana {
+    z-index: 2;
+    position: absolute;
+    left: 9%;
+    width: 1100px;
+    height: 600px;
+}
+
+
+/* #intro img {
+    width: auto;
+    height: 500px;
+    margin: auto;
+} */
