@@ -5,7 +5,11 @@ canvas{
     
 }
 
-
+#pongGame {
+    background-image: url("/backLogExtras/imagenes/letrajosep.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 #intro {
     position: absolute;
@@ -32,10 +36,3 @@ canvas{
     width: 1100px;
     height: 600px;
 }
-
-
-/* #intro img {
-    width: auto;
-    height: 500px;
-    margin: auto;
-} */

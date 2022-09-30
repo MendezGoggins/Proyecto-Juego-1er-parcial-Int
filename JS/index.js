@@ -14,7 +14,10 @@ window.onload = function (){
     let randomdiselotete = document.getElementById('randomdiselotete');
     let randomprinsesaquelepasa = document.getElementById('randomprinsesaquelepasa');
     let randomvosestaparsera = document.getElementById('randomvosestaparsera');
-
+    // let plank = document.getElementById('plank');
+    let plank = new Image();
+    plank.src= "backLogExtras/imagenes/plankfondo.png"
+    
     let scoreOne = 0;
     let scoreTwo = 0;
     
@@ -92,8 +95,8 @@ window.onload = function (){
         width:15,
         height:15,
         color: "#00ff00",
-        speed: 13,
-        gravity: 13,
+        speed: 10,
+        gravity: 10,
         image: null
      });
     
@@ -135,13 +138,14 @@ window.onload = function (){
         }
         ballWallCollision();
         drawElements();
+        context.drawImage(plank, canvas.width/2 - 175, canvas.height-100, 350, 100);
         // audio player1/2 gana
     
-        if(scoreOne == 1){
+        if(scoreOne == 6){
             setTimeout(function() { heGanaoYo.play();
             let imagenPlayer1Gana = document.createElement("img");
             imagenPlayer1Gana.id = "player1gana"
-            imagenPlayer1Gana.src="backLogExtras/imagenes/Jose_cara_grande.png";
+            imagenPlayer1Gana.src="backLogExtras/imagenes/josep-win.png";
             document.body.appendChild(imagenPlayer1Gana);
             cancion.pause();
             
@@ -150,11 +154,11 @@ window.onload = function (){
             finishGame(); 
         }
     
-        if(scoreTwo == 1){
+        if(scoreTwo == 6){
             setTimeout(function() { heGanaoYo.play();
                 let imagenPlayer2Gana = document.createElement("img");
                 imagenPlayer2Gana.id = "player2gana"
-                imagenPlayer2Gana.src="backLogExtras/imagenes/Jose_cara_grande.png";
+                imagenPlayer2Gana.src="backLogExtras/imagenes/josep-win.png";
                 document.body.appendChild(imagenPlayer2Gana);
                 cancion.pause();
                 
@@ -195,6 +199,7 @@ window.onload = function (){
             ball.speed = ball.speed * -1;
             ball.x = canvas.width / 2 + ball.speed;
             ball.y = canvas.height / 2 + ball.speed;
+            
             stopGame()
         }
         
@@ -203,6 +208,7 @@ window.onload = function (){
     function startGameOnKeyPress(){
         window.addEventListener("keydown", startGame, {once:true});
         cancion.play();
+        
         
     }
      // draw all elements
@@ -221,6 +227,7 @@ window.onload = function (){
         console.log("empieza")
         intervalID = setInterval(ballBounce, 20);
         document.getElementById("intro").remove();
+        
       }
     
     
